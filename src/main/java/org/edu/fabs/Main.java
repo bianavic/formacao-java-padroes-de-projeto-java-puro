@@ -1,5 +1,6 @@
 package org.edu.fabs;
 
+import org.edu.fabs.facade.Facade;
 import org.edu.fabs.singleton.SingletonEager;
 import org.edu.fabs.singleton.SingletonLazy;
 import org.edu.fabs.singleton.SingletonLazyHolder;
@@ -12,7 +13,7 @@ import org.edu.fabs.strategy.Robo;
 public class Main {
     public static void main(String[] args) {
 
-        // design Pattern Singleton
+        // design Pattern SINGLETON
         SingletonLazy lazy = SingletonLazy.getInstanciaDeleMesmo();
         System.out.println(lazy); // endereco de memoria: org.edu.fabs.singleton.SingletonLazy@251a69d7
         lazy = SingletonLazy.getInstanciaDeleMesmo();
@@ -28,7 +29,7 @@ public class Main {
         holder = SingletonLazyHolder.getInstanciaDeleMesmo();
         System.out.println(holder); // sera q retorna ele mesmo? org.edu.fabs.singleton.SingletonLazyHolder@58644d46
 
-        // Design Pattern Strategy
+        // Design Pattern STRATEGY
         Comportamento normal = new ComportamentoNormal();
         Comportamento defensivo = new ComportamentoDefensivo();
         Comportamento agressivo = new ComportamentoAgressivo();
@@ -49,6 +50,13 @@ public class Main {
         robo.mover();
         robo.mover();
         robo.mover();
+
+        // design Pattern FACADE
+        Facade facade = new Facade();
+        facade.migrarCliente("Joao", "14096");
+        /* resultado: q a facade que tem a interface de uso simples, onde passo o nome cep,
+        abstraia a complexidade de integracao api de cep e depois grave o cliente num sistema de crm
+         */
     }
 
 }
